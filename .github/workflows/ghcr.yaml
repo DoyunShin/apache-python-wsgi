@@ -5,7 +5,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: DoyunShin/apache-python
+  IMAGE_NAME: doyunshin/apache-python
 
 jobs:
   build:

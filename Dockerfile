@@ -1,4 +1,4 @@
-zARG PYTHON_VERSION=3.13
+ARG PYTHON_VERSION=3.13
 FROM httpd:2.4.65 AS apache
 FROM python:${PYTHON_VERSION} AS python
 
@@ -8,10 +8,10 @@ ENV PATH=/usr/local/apache2/bin:$PATH
 WORKDIR $HTTPD_PREFIX
 
 RUN set -eux; \
-	apt-get update; \
-	apt-get install -y --no-install-recommends ca-certificates libaprutil1-ldap libldap-common bzip2 dpkg-dev gcc gnupg libapr1-dev libaprutil1-dev libbrotli-dev libcurl4-openssl-dev libjansson-dev liblua5.2-dev  libnghttp2-dev libpcre3-dev libssl-dev libxml2-dev make patch zlib1g-dev curl && \
+    apt-get update; \
+    apt-get install -y --no-install-recommends ca-certificates libaprutil1-ldap libldap-common bzip2 dpkg-dev gcc gnupg libapr1-dev libaprutil1-dev libbrotli-dev libcurl4-openssl-dev libjansson-dev liblua5.2-dev  libnghttp2-dev libpcre3-dev libssl-dev libxml2-dev make patch zlib1g-dev curl && \
     apt-get install -y --no-install-recommends wireguard-tools iptables iproute2 sudo && \
-	rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/*
 
 STOPSIGNAL SIGWINCH
 COPY --from=apache /usr/local/apache2 /usr/local/apache2

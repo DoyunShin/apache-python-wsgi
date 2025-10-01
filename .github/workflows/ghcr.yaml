@@ -36,6 +36,6 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ env.REGISTRY }}/apache-python:${{ matrix.python-version }}
+          tags: ${{ env.REGISTRY }}/DoyunShin/apache-python:${{ matrix.python-version }}
           build-args: |
             PYTHON_VERSION=${{ matrix.python-version }}

@@ -15,7 +15,7 @@ COPY --from=apache /usr/local/bin/httpd-foreground /usr/local/bin/httpd-foregrou
 RUN set -eux; \
     apt-get update; \
     savedAptMark="$(apt-mark showmanual)"; \
-    apt-get install --update -y --no-install-recommends bzip2 dpkg-dev gcc gnupg libapr1-dev libaprutil1-dev libbrotli-dev libcurl4-openssl-dev libjansson-dev liblua5.2-dev libnghttp2-dev libpcre2-dev libssl-dev libxml2-dev make patch wget zlib1g-dev curl; \
+    apt-get install -y --no-install-recommends bzip2 dpkg-dev gcc gnupg libapr1-dev libaprutil1-dev libbrotli-dev libcurl4-openssl-dev libjansson-dev liblua5.2-dev libnghttp2-dev libpcre2-dev libssl-dev libxml2-dev make patch wget zlib1g-dev curl; \
     mkdir /usr/local/src/mod_wsgi -p; \
     cd /usr/local/src/mod_wsgi; \
     curl -L https://github.com/GrahamDumpleton/mod_wsgi/archive/refs/tags/$MOD_WSGI_VERSION.tar.gz | tar xz --strip-components=1; \

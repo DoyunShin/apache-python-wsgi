@@ -39,6 +39,6 @@ RUN set -eux; \
         | xargs -r apt-mark manual \
     ; \
     apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
-    apt-get dist-clean;
+    apt-get clean all;
 
 CMD ["httpd-foreground"]

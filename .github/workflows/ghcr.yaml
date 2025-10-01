@@ -5,7 +5,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: DoyunShin/apache-python
 
 jobs:
   build:
@@ -36,6 +36,6 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ env.REGISTRY }}/DoyunShin/apache-python:${{ matrix.python-version }}
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}:${{ matrix.python-version }}
           build-args: |
             PYTHON_VERSION=${{ matrix.python-version }}
